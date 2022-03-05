@@ -6,7 +6,10 @@ import { Brose, Home, Signin, Signup } from '../Page';
 import { UseAuthListener } from '../Hooks';
 
 export function RoutesComponent() {
-  const user = UseAuthListener();
+  const { user } = UseAuthListener();
+
+  // console.log(window.location.pathname);
+
   // const user = null;
   return (
     <>
@@ -20,7 +23,7 @@ export function RoutesComponent() {
               <Navigate from="/" to={ROUTES.BROSE} />
             )
           }
-        />
+        />{' '}
         <Route
           path={ROUTES.BROSE}
           element={
@@ -30,7 +33,7 @@ export function RoutesComponent() {
               <Brose user={user} />
             )
           }
-        />
+        />{' '}
         <Route
           path={ROUTES.SIGNIN}
           element={
@@ -40,7 +43,7 @@ export function RoutesComponent() {
               <Navigate from={ROUTES.SIGNIN} to={`../${ROUTES.BROSE}`} />
             )
           }
-        />
+        />{' '}
         <Route
           path={ROUTES.SIGNUP}
           element={
@@ -50,8 +53,8 @@ export function RoutesComponent() {
               <Navigate from={ROUTES.SIGNUP} to={`../${ROUTES.BROSE}`} />
             )
           }
-        />
-      </Routes>
+        />{' '}
+      </Routes>{' '}
     </>
   );
 }

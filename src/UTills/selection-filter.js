@@ -22,7 +22,7 @@ export default function selectionFilter(series, films) {
         data: series.filter((item) => item.genre === 'feel-good'),
       },
     ],
-    films: [
+    movies: [
       {
         title: 'Drama',
         data: films.filter((item) => item.genre === 'drama'),

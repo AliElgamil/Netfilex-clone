@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer, Jumbotron, Accordions, Header } from '../Components';
+import { Jumbotron, Accordions, Header } from '../Components';
 
 function Home() {
   return (

@@ -6,3 +6,4 @@ export { default as Accordions } from './Accordion';
 export { default as OptForm } from './Opt-Form';
 export { default as SigninForm } from './Form/Signin';
 export { default as SignupForm } from './Form/Signup';
+export { default as SelectProfile } from './Profiles';

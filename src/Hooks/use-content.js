@@ -6,7 +6,7 @@ export default function useContent(target) {
 
   useEffect(() => {
     (async () => {
-      const querySnapshot = await getDocs(collection(db, target));
+      const querySnapshot = await (getDocscollection(db, target));
       setAllContent(
         querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       );

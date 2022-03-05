@@ -1,6 +1,6 @@
 // This import loads the firebase namespace along with all its type information.
 import { initializeApp } from 'firebase/app';
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+// import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAcCm_60fGG-fMVbVUv_W6gGuMIewWMIk4',

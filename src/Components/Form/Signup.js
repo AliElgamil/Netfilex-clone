@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Background } from '../globalVar';
 import * as ROUTES from '../../Constants/Routes';
-import { FirebaseContext } from '../../Context/firebase';
+// import { FirebaseContext } from '../../Context/firebase';
 import {
   Base,
   Container,
@@ -22,9 +22,9 @@ import {
 
 export default function SignupForm() {
   const navigate = useNavigate();
-  const { firebase } = useContext(FirebaseContext);
+  // const { firebase } = useContext(FirebaseContext);
 
-  const [firstName, setFirstNAme] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -39,14 +39,11 @@ export default function SignupForm() {
     createUserWithEmailAndPassword(auth, emailAddress, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
         updateProfile(auth.currentUser, {
           displayName: firstName,
-          photoURL: Math.floor(Math.random() * 6),
+          photoURL: `images/users/${Math.floor(Math.random() * 6)}.png`,
         });
-
-        console.log(user);
-        // ...
       })
       .then(() => {
         navigate(`../${ROUTES.BROSE}`);
@@ -54,7 +51,7 @@ export default function SignupForm() {
       .catch((error) => {
         const errorMessage = error.message;
         // ..
-        setFirstNAme('');
+        setFirstName('');
         setEmailAddress('');
         setPassword('');
         setError(errorMessage);
@@ -64,42 +61,40 @@ export default function SignupForm() {
   return (
     <Background>
       <Container>
-        <Title>Sign up</Title>
-
+        <Title> Sign up </Title>
         <Base onSubmit={handleSignUp} method="POST">
-          {error && <Error>{error}</Error>}
+          {' '}
+          {error && <Error> {error} </Error>}{' '}
           <Input
             type="text"
             placeholder="First name"
             value={firstName}
-            onChange={({ target }) => setFirstNAme(target.value)}
-          />
+            onChange={({ target }) => setFirstName(target.value)}
+          />{' '}
           <Input
             type="email"
             placeholder="Email address"
             value={emailAddress}
             onChange={({ target }) => setEmailAddress(target.value)}
-          />
+          />{' '}
           <Input
             type="password"
             placeholder="Password"
             value={password}
             onChange={({ target }) => setPassword(target.value)}
-          />
+          />{' '}
           <Submit type="submit" disabled={isInvalid}>
-            Sign up
-          </Submit>
+            Sign up{' '}
+          </Submit>{' '}
         </Base>
-
         <Text>
-          New to Netflex?
-          <Link to="/signin">Sign in now.</Link>
-        </Text>
+          New to Netflex ?<Link to="/signin"> Sign in now. </Link>{' '}
+        </Text>{' '}
         <SmallText>
-          This page is protected by Google reCAPTCHA to ensure you're not a bot.
-          Learn more.
-        </SmallText>
-      </Container>
+          This page is protected by Google reCAPTCHA to ensure you 're not a
+          bot. Learn more.{' '}
+        </SmallText>{' '}
+      </Container>{' '}
     </Background>
   );
 }

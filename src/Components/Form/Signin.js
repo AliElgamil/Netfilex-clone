@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Background } from '../globalVar';
 import {
@@ -13,12 +13,12 @@ import {
   Submit,
 } from './style/Form';
 import * as ROUTES from '../../Constants/Routes';
-import { FirebaseContext } from '../../Context/firebase';
+// import { FirebaseContext } from '../../Context/firebase';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function SigninForm() {
   const navigate = useNavigate();
-  const { firebase } = useContext(FirebaseContext);
+  // const { firebase } = useContext(FirebaseContext);
 
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
