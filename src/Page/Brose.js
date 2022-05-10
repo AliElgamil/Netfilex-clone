@@ -12,7 +12,7 @@ export default function Brose() {
   const { user } = UseAuthListener();
   const slides = selectionFilter(series, movies);
 
-  console.log(user.currentUser);
+  console.log(user);
   return (
     <>
       <SelectProfile user={user} />
